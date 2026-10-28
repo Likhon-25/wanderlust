@@ -10,7 +10,7 @@ const searchFields = [
   { id: "people", label: "People", placeholder: "5-10" },
 ];
 
-export function Banner() {
+export const Banner = () => {
   return (
     <section className="relative flex min-h-[580px] flex-col overflow-hidden bg-neutral-800">
       {/* Background image with dark overlay for text legibility */}

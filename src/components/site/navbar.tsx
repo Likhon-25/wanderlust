@@ -14,7 +14,7 @@ const authLinks = [
   { label: "Sign Up", href: "/sign-up" },
 ];
 
-export function Navbar() {
+export const Navbar = () => {
   return (
     <header className="grid h-14 grid-cols-2 items-center gap-4 bg-white px-6 md:grid-cols-[1fr_auto_1fr] md:px-8 md:h-16 ">
       <nav className="flex items-center gap-4 md:gap-7 ">

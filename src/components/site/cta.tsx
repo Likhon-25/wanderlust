@@ -1,6 +1,6 @@
 import { ArrowRight } from "lucide-react";
 
-export function CallToAction() {
+export const CallToAction = () => {
   return (
     <section className="relative flex min-h-[360px] items-center justify-center overflow-hidden bg-neutral-900">
       {/* Background image with dark overlay for text legibility */}

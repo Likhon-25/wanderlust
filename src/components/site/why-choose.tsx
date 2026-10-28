@@ -21,7 +21,7 @@ const features = [
   },
 ];
 
-export function WhyChoose() {
+export const WhyChoose = () => {
   return (
     <section className="bg-[#e6f6f9] py-24">
       <div className="mx-auto max-w-[960px] px-4">

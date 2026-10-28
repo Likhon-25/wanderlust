@@ -18,7 +18,7 @@ const initialForm = {
   description: "",
 };
 
-export default function AddDestinationPage() {
+const AddDestinationPage = () => {
   const [form, setForm] = useState(initialForm);
 
   const updateForm = (field: keyof typeof form, value: string) => {
@@ -197,3 +197,5 @@ export default function AddDestinationPage() {
     </main>
   );
 }
+
+export default AddDestinationPage;

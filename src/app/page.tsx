@@ -3,7 +3,7 @@ import { CallToAction } from "@/components/site/cta";
 import { Testimonials } from "@/components/site/testimonials";
 import { WhyChoose } from "@/components/site/why-choose";
 
-export default function Home() {
+const Home = () => {
   return (
     <>
       <Banner />
@@ -13,3 +13,5 @@ export default function Home() {
     </>
   );
 }
+
+export default Home;

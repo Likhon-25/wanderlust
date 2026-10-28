@@ -41,7 +41,7 @@ const socialLinks = [
 const linkClass =
   "text-[15px] text-neutral-300 transition-colors hover:text-white";
 
-export function Footer() {
+export const Footer = () => {
   return (
     <footer className="bg-neutral-950 text-white">
       <div className="mx-auto max-w-[1100px] px-6 md:px-8">

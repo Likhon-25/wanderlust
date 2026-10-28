@@ -12,11 +12,11 @@ export type Destination = {
   description: string;
 };
 
-export function DestinationCard({
+export const DestinationCard = ({
   destination,
 }: {
   destination: Destination;
-}) {
+}) => {
   const price = Number(destination.price);
   const formattedPrice = Number.isFinite(price)
     ? price.toLocaleString("en-US")

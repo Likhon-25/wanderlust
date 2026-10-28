@@ -38,7 +38,7 @@ const testimonials = [
   },
 ];
 
-export function Testimonials() {
+export const Testimonials = () => {
   return (
     <section className="bg-white pt-11 pb-24">
       <div className="mx-auto max-w-[888px] px-4">
