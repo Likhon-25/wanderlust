@@ -1,11 +1,15 @@
 import { Banner } from "@/components/site/banner";
-import { Navbar } from "@/components/site/navbar";
+import { CallToAction } from "@/components/site/cta";
+import { Testimonials } from "@/components/site/testimonials";
+import { WhyChoose } from "@/components/site/why-choose";
 
 export default function Home() {
   return (
     <>
-      <Navbar />
       <Banner />
+      <WhyChoose />
+      <Testimonials />
+      <CallToAction />
     </>
   );
 }
