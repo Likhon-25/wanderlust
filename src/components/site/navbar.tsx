@@ -5,8 +5,8 @@ import { cn } from "@/lib/utils";
 const navLinks = [
   { label: "Home", href: "/", active: true },
   { label: "Destinations", href: "/destinations" },
+  { label: "Add Destinations", href: "/add_destinations" },
   { label: "My Bookings", href: "/my-bookings" },
-  { label: "Admin", href: "/admin" },
 ];
 
 const authLinks = [
@@ -16,8 +16,8 @@ const authLinks = [
 
 export function Navbar() {
   return (
-    <header className="grid h-14 grid-cols-2 items-center gap-4 bg-white px-6 md:grid-cols-[1fr_auto_1fr] md:px-8 md:h-16">
-      <nav className="flex items-center gap-4 md:gap-7">
+    <header className="grid h-14 grid-cols-2 items-center gap-4 bg-white px-6 md:grid-cols-[1fr_auto_1fr] md:px-8 md:h-16 ">
+      <nav className="flex items-center gap-4 md:gap-7 ">
         {navLinks.map((link) => (
           <Link
             key={link.label}
