@@ -5,12 +5,12 @@ import {
   CalendarDays,
   Check,
   MapPin,
-  Pencil,
   Star,
   Trash2,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import type { Destination } from "@/components/site/destination-card";
+import EditDestinationDialog from "./EditDestinationDialog";
 
 const perks = [
   "Free cancellation up to 7 days",
@@ -49,10 +49,8 @@ export const DestinationDetails = ({
         </Link>
 
         <div className="flex items-center gap-3">
-          <Button type="button" variant="outline">
-            <Pencil />
-            Edit
-          </Button>
+          
+          <EditDestinationDialog destination={destination} />
           <Button
             type="button"
             variant="destructive"
