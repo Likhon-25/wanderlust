@@ -6,11 +6,11 @@ import {
   Check,
   MapPin,
   Star,
-  Trash2,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import type { Destination } from "@/components/site/destination-card";
 import EditDestinationDialog from "./EditDestinationDialog";
+import DeleteDestination from "./DeleteDestination";
 
 const perks = [
   "Free cancellation up to 7 days",
@@ -51,14 +51,7 @@ export const DestinationDetails = ({
         <div className="flex items-center gap-3">
           
           <EditDestinationDialog destination={destination} />
-          <Button
-            type="button"
-            variant="destructive"
-            className="border border-destructive/40"
-          >
-            <Trash2 />
-            Cancel
-          </Button>
+          <DeleteDestination id={destination._id} />
         </div>
       </div>
 
@@ -68,7 +61,7 @@ export const DestinationDetails = ({
           src={destination.imageUrl}
           alt={destination.name}
           className="size-full object-cover"
-        />
+        /> 
       </div>
 
       <div className="mt-10 grid grid-cols-1 gap-10 lg:grid-cols-[1fr_280px] lg:gap-12">
