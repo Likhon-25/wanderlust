@@ -31,19 +31,6 @@ const DestinationDetailsPage = async ({
   }
 
   const destination = data.result;
-  const price = Number(destination.price);
-  const formattedPrice = Number.isFinite(price)
-    ? price.toLocaleString("en-US")
-    : destination.price;
-
-  const departureDate = new Date(`${destination.departureDate}T00:00:00`);
-  const formattedDate = Number.isNaN(departureDate.getTime())
-    ? destination.departureDate
-    : departureDate.toLocaleDateString("en-US", {
-        month: "short",
-        day: "numeric",
-        year: "numeric",
-      });
 
   return (
     <main className="mx-auto w-full max-w-6xl flex-1 px-6 py-10 md:px-12 md:py-14">
@@ -101,11 +88,7 @@ const DestinationDetailsPage = async ({
           </p>
         </section>
 
-        {/* aside */}
-        <BookingCard
-          formattedPrice={formattedPrice}
-          formattedDate={formattedDate}
-        />
+        <BookingCard destination={destination} />
       </div>
     </main>
   );
