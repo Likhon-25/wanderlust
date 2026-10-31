@@ -36,7 +36,7 @@ const SignUpPage = () => {
       ...user,
     });
     if (data) {
-        redirect('/')
+      redirect("/");
     }
     if (error) {
       console.log(error);
@@ -46,15 +46,15 @@ const SignUpPage = () => {
     <div className={"flex flex-col gap-6 max-w-6xl mx-auto my-10"}>
       <Card>
         <CardHeader className="text-center">
-          <CardTitle className="text-xl">Welcome back</CardTitle>
+          <CardTitle className="text-xl">Create an account</CardTitle>
           <CardDescription>
-            Login with your Apple or Google account
+            Sign in with your Apple or Google account
           </CardDescription>
         </CardHeader>
         <CardContent>
           <form onSubmit={handleEmailSignUp}>
             <FieldGroup>
-              {/* login with social */}
+              {/* SignIn with social */}
               <Field>
                 <Button variant="outline" type="button">
                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
@@ -63,7 +63,7 @@ const SignUpPage = () => {
                       fill="currentColor"
                     />
                   </svg>
-                  Login with Apple
+                  Sign in with Apple
                 </Button>
                 <Button variant="outline" type="button">
                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
@@ -72,7 +72,7 @@ const SignUpPage = () => {
                       fill="currentColor"
                     />
                   </svg>
-                  Login with Google
+                  Sign in with Google
                 </Button>
               </Field>
 
@@ -116,6 +116,7 @@ const SignUpPage = () => {
                   required
                 />
               </Field>
+
               {/* password */}
               <Field>
                 <div className="flex items-center">
@@ -129,10 +130,11 @@ const SignUpPage = () => {
                 </div>
                 <Input id="password" name="password" type="password" required />
               </Field>
+
               <Field>
                 <Button type="submit">Sign up</Button>
                 <FieldDescription className="text-center">
-                  Have an account? <Link href="/sign-in">Sign in</Link>
+                  Have an account? <Link href="/login">Login</Link>
                 </FieldDescription>
               </Field>
             </FieldGroup>
