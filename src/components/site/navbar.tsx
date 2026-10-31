@@ -19,7 +19,7 @@ const navLinks = [
   { label: "Home", href: "/", active: true },
   { label: "Destinations", href: "/destinations" },
   { label: "Add Destinations", href: "/add_destinations" },
-  { label: "My Bookings", href: "/my-bookings" },
+  { label: "My Bookings", href: "/myBooking" },
 ];
 
 const authLinks = [
