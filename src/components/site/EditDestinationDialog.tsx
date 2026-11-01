@@ -16,6 +16,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import type { Destination } from "@/components/site/destination-card";
+import { getTokenFromServer } from "@/lib/getTokenFormServer";
 
 // const initialForm = {
 //   name: "",
@@ -53,12 +54,15 @@ const EditDestinationDialog = ({
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
+    const token = await getTokenFromServer();
+
     const response = await fetch(
       `http://localhost:5000/destination/${destination._id}`,
       {
         method: "PATCH",
         headers: {
           "Content-Type": "application/json",
+          authorization: `Bearer ${token}`,
         },
         body: JSON.stringify(form),
       },

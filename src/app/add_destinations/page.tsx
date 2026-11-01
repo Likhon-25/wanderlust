@@ -6,6 +6,9 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
+import { authClient } from "@/lib/auth-client";
+import { getTokenFromServer } from "@/lib/getTokenFormClient";
+import { error } from "console";
 
 const initialForm = {
   name: "",
@@ -28,17 +31,23 @@ const AddDestinationPage = () => {
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
+  const token = await getTokenFromServer();
+
+    if (error || !token) {
+      console.error("Unable to generate JWT token:", error);
+      return;
+    }
+
     const response = await fetch("http://localhost:5000/add_destinations", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
+        authorization: `Bearer ${token}`
       },
       body: JSON.stringify(form),
     });
-    const data =await response.json()
-    // const result = await response.json();
-    console.log(form);
-    console.log(data);
+    const result =await response.json()
+    console.log(result);
 
     if (response.ok) {
       setForm(initialForm);

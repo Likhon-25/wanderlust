@@ -5,21 +5,14 @@ import { ArrowLeft, CalendarDays, MapPin, Star } from "lucide-react";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import BookingCard from "@/components/booking/BookingCard";
-import { auth } from "@/lib/auth";
-import { headers } from "next/headers";
+import { getTokenFromServer } from "@/lib/getTokenFormServer";
 
 const DestinationDetailsPage = async ({
   params,
 }: PageProps<"/destinations/[id]">) => {
   const { id } = await params;
 
-  const jwtToken = await auth.api.getToken({
-    headers: await headers(),
-  });
-  // const token = jwtToken?.token;
-  // console.log(token);
-  const token = typeof jwtToken === "string" ? jwtToken : jwtToken?.token;
-  console.log(token);
+  const token = await getTokenFromServerr();
 
   const res = await fetch(`http://localhost:5000/destination/${id}`, {
     cache: "no-store",
