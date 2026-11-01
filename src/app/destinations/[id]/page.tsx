@@ -1,12 +1,7 @@
 import type { Destination } from "@/components/site/destination-card";
 import EditDestinationDialog from "@/components/site/EditDestinationDialog";
 import DeleteDestination from "@/components/site/DeleteDestination";
-import {
-  ArrowLeft,
-  CalendarDays,
-  MapPin,
-  Star,
-} from "lucide-react";
+import { ArrowLeft, CalendarDays, MapPin, Star } from "lucide-react";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import BookingCard from "@/components/booking/BookingCard";
@@ -19,15 +14,18 @@ const DestinationDetailsPage = async ({
   const { id } = await params;
 
   const jwtToken = await auth.api.getToken({
-    headers: await headers()
-  })
-  console.log(jwtToken);
+    headers: await headers(),
+  });
+  // const token = jwtToken?.token;
+  // console.log(token);
+  const token = typeof jwtToken === "string" ? jwtToken : jwtToken?.token;
+  console.log(token);
 
   const res = await fetch(`http://localhost:5000/destination/${id}`, {
     cache: "no-store",
-    headers:{
-      authorization: jwtToken?.token
-    }
+    headers: {
+      authorization: `Bearer ${token}`,
+    },
   });
 
   if (!res.ok) {
