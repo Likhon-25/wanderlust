@@ -10,14 +10,24 @@ import {
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import BookingCard from "@/components/booking/BookingCard";
+import { auth } from "@/lib/auth";
+import { headers } from "next/headers";
 
 const DestinationDetailsPage = async ({
   params,
 }: PageProps<"/destinations/[id]">) => {
   const { id } = await params;
 
+  const jwtToken = await auth.api.getToken({
+    headers: await headers()
+  })
+  console.log(jwtToken);
+
   const res = await fetch(`http://localhost:5000/destination/${id}`, {
     cache: "no-store",
+    headers:{
+      authorization: jwtToken?.token
+    }
   });
 
   if (!res.ok) {
