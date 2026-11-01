@@ -3,8 +3,6 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight, Check } from "lucide-react";
 import type { Destination } from "@/components/site/destination-card";
 import { Input } from "../ui/input";
-import { date, email } from "better-auth";
-import { username } from "better-auth/plugins";
 import { authClient } from "@/lib/auth-client";
 
 const perks = [
@@ -18,7 +16,7 @@ type BookingCardProps = {
 };
 
 const BookingCard = ({ destination }: BookingCardProps) => {
-  const {data : session} = authClient.useSession();
+  const { data: session } = authClient.useSession();
   const user = session?.user;
 
   const price = Number(destination.price);
@@ -26,27 +24,27 @@ const BookingCard = ({ destination }: BookingCardProps) => {
     ? price.toLocaleString("en-US")
     : destination.price;
 
-  const handleBooking =async (e) => {
+  const handleBooking = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    const departureDate = e.target.departureDate.value
-    
+    const departureDate = e.target.departureDate.value;
+
     const data = {
       username: user?.name,
       email: user?.email,
       image: user?.image,
       ...destination,
       departureDate: departureDate,
-      bookingDate: new Date()
-    }
-    const res = await fetch ('http://localhost:5000/booking', {
-      method: 'POST',
+      bookingDate: new Date(),
+    };
+    const res = await fetch("http://localhost:5000/booking", {
+      method: "POST",
       headers: {
-        'Content-Type' : 'application/json'
+        "Content-Type": "application/json",
       },
-      body: JSON.stringify(data)
-    })
-    const bookingRes = await res.json()
+      body: JSON.stringify(data),
+    });
+    const bookingRes = await res.json();
     console.log(bookingRes);
   };
   return (
